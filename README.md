@@ -187,6 +187,10 @@ open a new one so that choco path is set, and run in cmd as **admin**:
 ```
 choco install -y neovim git ripgrep wget fd unzip gzip mingw make
 ```
+
+```
+scoop install neovim git ripgrep wget fd unzip gzip mingw make
+```
 </details>
 <details><summary>WSL (Windows Subsystem for Linux)</summary>
 

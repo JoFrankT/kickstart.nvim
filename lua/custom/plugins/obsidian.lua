@@ -25,5 +25,25 @@ return {
     },
 
     -- see below for full list of options 👇
+
+    templates = {
+      folder = 'templates',
+      date_format = '%Y-%m-%d',
+      time_format = '%H:%M:%S',
+      substitutions = {},
+
+      ---@class obsidian.config.CustomTemplateOpts
+      ---
+      ---@field notes_subdir? string
+      ---@field note_id_func? (fun(title: string|?, path: obsidian.Path|?): string )
+      customizations = {},
+    },
+    daily_notes = {
+      folder = 'notes',
+      date_format = '%Y-%m-%d',
+      time_format = '%B %-d, %Y',
+      default_tags = { 'daily-notes' },
+      workdays_only = true,
+    },
   },
 }

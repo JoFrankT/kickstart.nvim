@@ -672,6 +672,12 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
+        html = {
+          filetypes = { 'html', 'templ', 'htmldjango' },
+        },
+        djlsp = {
+          filetypes = { 'htmldjango' },
+        },
         -- clangd = {},
         -- gopls = {},
         -- pyright = {},
@@ -730,9 +736,15 @@ require('lazy').setup({
             -- by the server configuration above. Useful when disabling
             -- certain features of an LSP (for example, turning off formatting for ts_ls)
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+
             require('lspconfig')[server_name].setup(server)
           end,
         },
+      }
+      -- Manual html setup for htmldjango
+      require('lspconfig').html.setup {
+        filetypes = { 'html', 'templ', 'htmldjango' },
+        capabilities = capabilities,
       }
     end,
   },
